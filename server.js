@@ -1,15 +1,15 @@
 // const ejs = require("ejs");
 
 try {
-  require("./secrets");
+  require('./secrets');
 } catch (ex) {
   console.log(ex);
   console.log(
-    "if running locally add secrets.js file which sets environment variables for GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET"
+    'if running locally add secrets.js file which sets environment variables for GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET'
   );
 }
-const { syncAndSeed } = require("./db");
-const app = require("./app");
+const { syncAndSeed } = require('./db');
+const app = require('./app');
 // app.engine("html", ejs.renderFile);
 const init = async () => {
   await syncAndSeed();

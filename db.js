@@ -1,7 +1,7 @@
-const axios = require("axios");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const Sequelize = require("sequelize");
+const axios = require('axios');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const Sequelize = require('sequelize');
 const { STRING, INTEGER } = Sequelize;
 const config = {
   logging: false,
@@ -11,11 +11,11 @@ if (process.env.LOGGING) {
   delete config.logging;
 }
 const conn = new Sequelize(
-  process.env.DATABASE_URL || "postgres://localhost/acme_db",
+  process.env.DATABASE_URL || 'postgres://localhost/auth_db',
   config
 );
 
-const User = conn.define("user", {
+const User = conn.define('user', {
   username: STRING,
   githubId: INTEGER,
 });
@@ -27,9 +27,9 @@ User.byToken = async (token) => {
     if (user) {
       return user;
     }
-    throw "noooo";
+    throw 'noooo';
   } catch (ex) {
-    const error = Error("bad credentials");
+    const error = Error('bad credentials');
     error.status = 401;
     throw error;
   }
@@ -38,13 +38,13 @@ User.byToken = async (token) => {
 // documentation - https://docs.github.com/en/developers/apps/authorizing-oauth-apps
 
 // useful urls
-const GITHUB_CODE_FOR_TOKEN_URL = "https://github.com/login/oauth/access_token";
-const GITHUB_ACCESS_TOKEN_FOR_USER_URL = "https://api.github.com/user";
+const GITHUB_CODE_FOR_TOKEN_URL = 'https://github.com/login/oauth/access_token';
+const GITHUB_ACCESS_TOKEN_FOR_USER_URL = 'https://api.github.com/user';
 
 //the authenticate methods is passed a code which has been sent by github
 //if successful it will return a token which identifies a user in this app
 User.authenticate = async (code) => {
-  throw "nooooo";
+  throw 'nooooo';
 };
 
 const syncAndSeed = async () => {

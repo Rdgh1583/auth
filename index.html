@@ -60,7 +60,7 @@
           if (!auth.id) {
             return (
               <a
-                href={`https://github.com/login/oauth/authorize?client_id=<%= GITHUB_CLIENT_ID %>`}
+                href='https://github.com/login/oauth/authorize?client_id=<%= GITHUB_CLIENT_ID %>'
               >
                 Login to Github
               </a>
@@ -78,3 +78,15 @@
     </script>
   </body>
 </html>
+
+
+<!-- <html>
+  <head>
+
+  </head>
+  <body>
+    <a href='https://github.com/login/oauth/authorize?client_id=<%= GITHUB_CLIENT_ID %>' >
+      Login to Github
+    </a>
+  </body>
+</html> -->
